@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Book2</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <script src="https://kit.fontawesome.com/20df87ba70.js" crossorigin="anonymous"></script>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <header>
+  <nav>
+  <div class="title">Bookers4</div>
+  <ul>
+    <% if user_signed_in? %>
+      <li>
+      <span class="glyphicon glyphicon-home" aria-hidden="true"></span><%= link_to 'Home', user_path(current_user.id),:style=>"color:white;" %>
+      </li>
+      <li>
+      <span class="glyphicon glyphicon-user" aria-hidden="true"></span><%= link_to 'Users', users_path,:style=>"color:white;" %>
+      </li>
+      <li>
+      <span class="glyphicon glyphicon-book" aria-hidden="true"></span><%= link_to 'Books', books_path,:style=>"color:white;" %>
+    </li>
+      <li>
+      <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span><%= link_to "Logout", destroy_user_session_path, method: :delete,:style=>"color:white;" %>
+      </li>
+    <% else %>
+      <li>
+      <span class="glyphicon glyphicon-home" aria-hidden="true"></span><%= link_to 'Home', "/", :style=>"color:white;" %>
+      </li>
+      <li>
+      <span class="glyphicon glyphicon-link" aria-hidden="true"></span><%= link_to 'About', home_about_path,:style=>"color:white;" %>
+      </li>
+      <li>
+      <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span><%= link_to "Sign up", new_user_registration_path,:style=>"color:white;" %>
+      </li>
+      <li>
+      <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span><%= link_to "Login", new_user_session_path,:style=>"color:white;" %>
+      </li>
+    <% end %>
+  </ul>
+  </nav>
+  </header>
+
+ <div class="container">
+
+ <p class="notice"><%= notice %></p>
+ <p class="alert"><%= alert %></p>
+
+ <%= yield %>
+ </div>
+
+ </body>
+</html>

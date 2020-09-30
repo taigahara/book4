@@ -1,0 +1,24 @@
+<div class="row">
+<%= render partial: "books/list", locals: { user: current_user, book: @book } %>
+
+  <div class="col-xs-9" >
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>image</th>
+        <th>name</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+      　<td><%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "pull-left profile-img", fallback: "no_image.jpg", size:'100x100' %></td>
+        <td><%= user.name %></td>
+        <td><%= link_to 'Show', user_path(user) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+</div>

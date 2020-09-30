@@ -1,0 +1,26 @@
+<div class="row">
+<%= render partial: "books/list", locals: { user: @user, book: @book } %>
+
+<div class="col-xs-9" >
+    <table class="table table-striped">
+      <h2>Books</h2>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Title</th>
+          <th>Opinion</th>
+        </tr>
+      </thead>
+
+        <% @books.each do |book| %>
+        <tr>
+          <td><%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "pull-left profile-img", fallback: "no_image.jpg", size:'100x100' %></td>
+          <td><%= link_to book.title, book_path(book) %></>
+          <td><%= book.body %></td>
+          <td>コメント数：<%= book.post_comments.count %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
