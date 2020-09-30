@@ -8,6 +8,15 @@ Things you may want to cover:
 * Ruby version
 
 * System dependencies
+ログイン機能
+本の投稿、編集、削除機能
+ユーザーの編集機能
+ユーザーの画像機能
+バリデーション機能
+いいね機能
+コメント機能
+bootstrapを使ったアイコン
+
 
 * Configuration
 
