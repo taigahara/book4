@@ -7,9 +7,7 @@ class PostCommentsController < ApplicationController
       flash[:success] = "Comment was successfully created."
       redirect_to book_path(book)
     else
-      @book = Book.find(params[:id])
-      @post_comments = @book.post_comments
-      render '/books/show'
+      redirect_to request.referer
     end
   end
 
